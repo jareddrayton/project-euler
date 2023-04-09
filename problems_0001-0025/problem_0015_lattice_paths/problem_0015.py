@@ -1,29 +1,9 @@
-# 1x1 2
-# 2x2 6
-# 3x3 20
+from math import comb
 
-# 0 
-# 1
-# 3
-# 6
-# 10
-# 15
-# 21
+n = 20
+total = 0
 
+for i, k in zip(range(n-1, n-1+n), range(0, n)):
+    total += comb(i, k) * 2
 
-def triangle_number():
-    number = 0
-    i = 1
-    while True:
-        number += i
-        yield number
-        i += 1
-
-
-for i, number in enumerate(triangle_number(), start=1):
-
-    # print(i,number)
-    if i == 1 or i % 2 == 0:
-        print(i//2, number*2)
-    if i == 40:
-        break
+print(total)
